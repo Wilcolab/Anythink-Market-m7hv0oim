@@ -35,7 +35,12 @@ class Item extends React.Component {
     if (!this.props.item) {
       return null;
     }
-
+    
+    let img = this.props.item.image;
+    if(img === ''|| typeof img === 'undefined') {
+      img = placeholder;
+    }
+    
     const markup = {
       __html: marked(this.props.item.description, { sanitize: true }),
     };
